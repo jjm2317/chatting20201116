@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Chatting</title>
-  <link rel="stylesheet" href="/css/index.css">
-  <script src="/socket.io/socket.io.js"></script>
-  <script src = "/js/index.js"></script>
-
-</head>
-<body>
-  <div id = "main">
-    <input type="text" id = "test">
-    <button onclick= "send()">전송</button>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chatting</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/js/index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo">
+          <h1 class="logo-heading">FEbook Open Chat</h1>
+        </div>
+      </header>
+      <main id="main">
+        <div class="member">
+          <h2 class="member-heading">
+            Member list
+          </h2>
+          <ul class="member-list">
+            <!-- <li class="member-item">jiman</li>
+            <li class="member-item">지만</li> -->
+          </ul>
+        </div>
+        <div class="chat">
+          <ul class ="chat-log">
+            <li class="chat-log-item"></li>
+          </ul>
+          <input type="text" id="test" /> 
+          <button class ="btn-send"onclick="send()">Send</button>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>

@@ -1,7 +1,126 @@
+@import url(./normalize.css);
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700%7CNoto+Sans+KR");
+.clearfix {
+  content: "";
+  display: block;
+  clear: both;
+}
+.a11y-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 1px;
+}
+body {
+  font-family: "Roboto";
+}
+body {
+  overflow: auto;
+}
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+h1, h2{
+  margin : 0;
+}
+/* 컨테이너 */
+.container {
+  height: 100vh; 
+  background-image: url(https://files.slack.com/files-pri/T016K7WJAV9-F01ESFV806P/night-photograph-2183637_1920.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* 헤더 */
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  border-bottom: 2px solid #A593E0 ;
+}
+.logo-heading{
+  color: #fff;
+  text-align:center;
+}
+
+
+/* 메인 */
+
 #main {
+  width: 80%;
+  height: 500px;
+  display: flex;
+  flex-flow: row nowrap;
   margin: 0 auto;
   text-align: center;
 
-  background-color: blue;
-  width: 200px;
+  /* background-color: blue; */
+  justify-content: center;
+}
+
+.member {
+  height: 400px;
+  width: 30%;
+  border: 1px solid #A593E0
+}
+.member-heading {
+  height: 30px;
+  border-bottom: 1px solid #A593E0;
+  font-size: 1rem;
+  color: #eef;
+  line-height: 30px;
+  vertical-align: center;
+}
+.member-item{
+  border-bottom: 1px dashed #A593E0;
+  height: 20px;
+  color: #E0E3DA;
+  line-height: 20px;
+  vertical-align: center;
+}
+
+/* 일반 채팅 */
+.chat{
+  /* background-color: skyblue; */
+  border: 1px solid #A593E0;
+  width: 70%;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  flex-flow: row wrap;
+}
+
+.chat-log {
+  height: 70%;
+  width : 100%;
+  /* background-color: orange; */
+  align-self: flex-start;
+}
+
+.chat-log-item {
+  border-bottom: 1px dashed #A593E0;
+  height: 10%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+#test {
+  width:80%;
+  height: 20%;
+  padding: 0;
+  background-color: rgba(255,255,255, 0.4);
+  border: 0;
+}
+.btn-send{
+  border: none;
+  background-color: none;
+  cursor: pointer;
+  width: 20%;
+  height: 20%;
 }

@@ -73,11 +73,14 @@ server.listen(8000,function(){
 // 커넥션 이벤트가 발생하면 newUser(사용자 정의 이벤트)이벤트에 의해 새유저 알림이 뜸
 // 그리고 해당 새 소켓의 name 프로퍼티에 name 인수 데이터가 저장
 // 모든소켓에 대하여 접속 사실을 알린다.
+let memberList = [];
+
 io.sockets.on('connection', socket => {
 	socket.on('newUser', (name)=>{
 	console.log(name +'이 접속하였습니다.');
 	socket.name = name;
-	
+  memberList = [...memberList, name];
+  io.sockets.emit('memberUpdate', memberList);
 	io.sockets.emit('update', {type: 'connect', name: 'SERVER', message: name+'님이 접속하였습니다.'})
 	})
   
@@ -86,12 +89,13 @@ io.sockets.on('connection', socket => {
   socket.on('message', data => {
     data.name = socket.name
     console.log(data)
-    socket.broadcast.emit('update', data);
+    io.sockets.emit('update', data);
   })
   
   socket.on('disconnect', () =>{
     console.log(socket.name + '님이 나가셨습니다.');
-    
+    memberList = memberList.filter(member => member !==socket.name);
     socket.broadcast.emit('update', {type: 'disconnect', name: 'SERVER', message: socket.name + '님이 나가셨습니다.'})
+    socket.broadcast.emit('memberUpdate', memberList);
   })
 })
