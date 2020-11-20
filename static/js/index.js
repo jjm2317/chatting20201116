@@ -17,12 +17,13 @@ const memberRender = data =>{
   ).join('');
 }
 
-socket.on ('connect', ()=>{
-
-  let name = prompt('반갑습니다!', '');
+socket.on ('connect', async ()=>{
+ const res = await fetch('http://localhost:3000/chatUser/1')
+  let name = await res.json();
+  name = name.nickname;
   if(!name) name = '익명';
 
-  socket.emit('newUser', name);
+  await socket.emit('newUser', name);
 })
 
 socket.on('update', data => {
