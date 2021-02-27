@@ -127,6 +127,7 @@ h1, h2{
   width : 100%;
   /* background-color: orange; */
   align-self: flex-start;
+  overflow-y: scroll;
 }
 .chat-log-item {
   border-bottom: 1px dashed #eee;
@@ -145,6 +146,7 @@ h1, h2{
   border-radius: 0 0 0 20px;
   /* border-radius: 20px; */
   border: 0;
+  outline: none;
 }
 .btn-send{
   border: none;
@@ -154,4 +156,10 @@ h1, h2{
   height: 20%;
   font-size: 23px;
   border-radius: 0 0 20px 0;
+  outline:none;
+}
+.btn-send:hover{
+  background-color: #000;
+  color: #fff;
+  transition: 1s;
 }
